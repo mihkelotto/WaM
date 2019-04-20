@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Whack A Mole</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="start()">
+  <div class="wrap">
+    <div>
+      <button class="btn" onclick="window.location.reload();">Play Again</button>
+      <div class="scorebar">
+        <p>Score:&nbsp</p>
+        <p class="score">0</p>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <td>
+          <div class="square">
+            <div class="mole"></div>
+            <div class="hole"></div>
+          </div>
+        </td>
+        <td>
+          <div class="square">
+            <div class="mole"></div>
+            <div class="hole"></div>
+          </div>
+        </td>
+        <td>
+          <div class="square">
+            <div class="mole"></div>
+            <div class="hole"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="square">
+            <div class="mole"></div>
+            <div class="hole"></div>
+          </div>
+        </td>
+        <td>
+          <div class="square">
+            <div class="mole"></div>
+            <div class="hole"></div>
+          </div>
+        </td>
+        <td>
+          <div class="square">
+            <div class="mole"></div>
+            <div class="hole"></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="square">
+            <div class="mole"></div>
+            <div class="hole"></div>
+          </div>
+        </td>
+        <td>
+          <div class="square">
+            <div class="mole"></div>
+            <div class="hole"></div>
+          </div>
+        </td>
+        <td>
+          <div class="square">
+            <div class="mole"></div>
+            <div class="hole"></div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    var moles = document.querySelectorAll('.mole');
+    var index;
+    var score = 0;
+    var recent;
+    var time;
+
+    function start() {
+      document.querySelector('.btn').disabled = true;
+      popUp();
+      time = setTimeout(start, 750);
+      setTimeout(function () {
+        clearTimeout(time);
+        document.querySelector('.btn').disabled = false;
+      }, 15000);
+    }
+
+    function popUp() {
+      while (index == recent) {
+        index = Math.floor(Math.random() * 9);
+      }
+      moles[index].style.visibility = "visible";
+      setTimeout(function () {
+        moles[index].style.visibility = "hidden";
+      }, 750);
+      recent = index;
+    }
+
+    for (var i = 0; i < moles.length; i++) {
+      moles[i].addEventListener("click", function () {
+        moles[index].style.visibility = "hidden";
+        score++;
+        document.querySelector('.score').innerHTML = score;
+      });
+    }
+  </script>
+
+</body>
+
+</html>
