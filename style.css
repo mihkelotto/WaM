@@ -46,20 +46,19 @@ button {
 
 .mole {
   visibility: hidden;
-  padding: 60px;
-  background: url('http://www.scalsys.com/1pngs/mole-png/mole_png_889355.png');
+  padding: 75px;
+  background: url('mole.png');
   background-repeat: no-repeat;
   background-position: center top; 
-  background-position-y: -0.5em;
-  background-size: 110%;
-  top: 20px;
+  background-size: 90%;
 }
 
 .hole {
-  background-image: url('http://www.sclance.com/pngs/dirt-pile-png/dirt_pile_png_393244.png');
+  background-image: url('dirt.png');
   background-repeat: no-repeat;
   background-position: center bottom; 
   background-size: 100%;
   position: relative;
-  margin-top: 64%;
+  margin-top: 45%;
+  top: 20px;
 }
